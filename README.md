@@ -69,18 +69,25 @@ Now our code should be looking something like this:
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  
   <title> Hadwen Arboretum Map!</title>                 <!-- Page title --> 
+
+  <!--Import Leaflet-->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet Style Sheet -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>           <!-- Leaflet JavaScript File -->
-  <style> 
-    <!--set map height--> 
+  
+  <style>   
+   <!--set map height in head section-->
       #map { height : 100%} 
   </style>  
+  
   </head>
+ 
   <body>
     <!--create map element-->
     <div id="map"></div>
   </body>
 </html>
+
 ```
 
