@@ -29,7 +29,7 @@ Here we'll see all the basic components of an HTML file, including a `<title> </
 <title> Hadwen Arboretum Map! </title>
 ```
 
-Make sure you save your file in your document folder of your local web server application! Now we can get started with Leaflet!
+Make sure you save your file in your document folder of your local web server application! You may have to put `.html` to the end of your file name to make sure the file saves as an HTML file. Now we can get started with Leaflet!
 
 ### Getting started with Leaflet
 There are a couple of options to start using the Leaflet library in your code. One way is to download and import leaflet into your code from [Leaflet's download page](https://leafletjs.com/download.html). If you decide to use this method, make sure you save these file in the same folder of the local web server! For this tutorial though, we're going to be using a hosted version of Leaflet [also found on Leaflet's download page](https://leafletjs.com/download.html).
@@ -38,4 +38,49 @@ Leaflet requires two parts:
 1. Leaflet's CSS style sheet: `leaflet.css` (in the downloadable version)
 2. Leaflet's JavaScript file: `leaflet.js` (in the downloadable version)
 
-You'll import both of these files into the `<head>` section of your HTML fileThe CSS file **must** come before the JavaScript file in the script.
+You'll import both of these hosted Leaflet files into the `<head>` section of your HTML file, just below the `<title>` section. The CSS file **must** come before the JavaScript file in the script!!
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+```
+Cool! Now the Leaflet library is imported in your script for you to use. Now lets make a basic map
+
+### Making a Basemap
+To start of making a webmap, we need to add a map element to our page. To this we're going to use a `<div>` tag to store our map element in the `<body>` of the script, like this:
+
+```html
+ <div id="map"></div>
+```
+
+Next we're going to define how big the map is going to be on our webpage. To do this, we're going to create a `<style>` section in our `<head>` section. In this case, because we're only displaying the webmap on our page, we'll let it take up the whole page:
+
+```html
+  <style>
+    #map{ height: 100% }
+  </style>
+```
+Make sure when you're creating the style element, that you include both the start `<style>` tag **and** the end `</style>` tag!
+
+Now our code should be looking something like this:
+
+```html
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title> Hadwen Arboretum Map!</title>                 <!-- Page title --> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" /> <!-- Leaflet Style Sheet -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>           <!-- Leaflet JavaScript File -->
+  <style> 
+    <!--set map height--> 
+      #map { height : 100%} 
+  </style>  
+  </head>
+  <body>
+    <!--create map element-->
+    <div id="map"></div>
+  </body>
+</html>
+```
+
