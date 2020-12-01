@@ -9,7 +9,7 @@
 ## Tutorial
 ### Before we start...
 You will need:
-1. A code editor, I used Atom
+1. A code editor, I used [Atom](https://atom.io/)
 2. Set up a local web server. I used [MAMP](https://www.mamp.info/en/mac/).
 
 In this local web server, we will be storing all the files we need to for this tutorial. Using MAMP, I stored all my files in the applications `htdocs` folder. [Check out this short video](https://www.youtube.com/watch?v=N0CPgBrjpl8&feature=emb_logo) to learn how to set up and store files in MAMP.
@@ -105,7 +105,7 @@ To start doing this, we need to start using JavaScript in our html file. We can 
   </body>
 
 ```
-From now on, we will be working entirely within the start `<script>` tag and the end `<script>` tag for our map.
+From now on, we will be working entirely within the start `<script>` tag and the end `<script>` tag for our map!
 
-First, 
+First, lets create our map variable. We will be using `L.map` to initialize our map object to the `<div>` we created before, setting the map center on the Hadwen Arboretum, using the format `L.map("html div").setView[latitude,longitude,zoom level)`
 
