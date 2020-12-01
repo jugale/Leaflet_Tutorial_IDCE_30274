@@ -109,7 +109,7 @@ From now on, we will be working entirely within the start `<script>` tag and the
 
 First, lets create our map variable. We will be using `L.map` to initialize our map object to the `<div>` we created before, setting the map center on the Hadwen Arboretum, using the format `L.map("html div").setView[latitude,longitude],zoom level)`
 
-```java
+```javascript
   // initialize the map
   var map = L.map('map').setView([42.258288, -71.832662], 17);
 ```
