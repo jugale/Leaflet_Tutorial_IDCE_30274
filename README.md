@@ -47,7 +47,7 @@ You'll import both of these hosted Leaflet files into the `<head>` section of yo
 Cool! Now the Leaflet library is imported in your script for you to use. Now lets make a basic map
 
 ### Making a Basemap
-To start of making a webmap, we need to add a map element to our page. To this we're going to use a `<div>` tag to store our map element in the `<body>` of the script, like this:
+To start of making a webmap, we need to create a place to add a map element to our page. To this we're going to use a `<div>` tag to store our map element in the `<body>` of the script, like this:
 
 ```html
  <div id="map"></div>
@@ -84,10 +84,26 @@ Now our code should be looking something like this:
   </head>
  
   <body>
-    <!-- create map element -->
+    <!-- create map div -->
     <div id="map"></div>
   </body>
 </html>
 
 ```
+Save and open your HTML file in your web browser. Cool, but nothing's going to show up. That's because you've created a space for your map on the webpage, but haven't actually made a map element. Lets do that now!
+
+To start doing this, we need to start using JavaScript in our html file. We can do this by creating a `<script>` section within the HTML `<body>`. Paste this code within your HTML `<body> </body>`.
+
+```html
+<body>
+    <!-- create map div -->
+    <div id="map"></div>
+ <script>
+  
+   </script>
+ 
+  </body>
+
+```
+From now on, we will be working entirely within the start `<script>` tag and the end `<script>` tag for our map.
 
