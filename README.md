@@ -24,7 +24,10 @@ If you select the button that says "Plain Text" you will have the option to swit
 Next we need to create the basic structure of an HTML file, including the `<head>` and `<body>` section. Atom also makes this part wicked easy! Start typing "HTML" and the application will pop-up an autocomplete option. Press tab, or use your mouse to click the autocomplete pop-up, and Atom will start you off with a basic HTML structure:
 
 Here we'll see all the basic components of an HTML file, including a `<title> </title>` section. Here we can give our webpage a title which will appear when you hover over your webpage tab in a browser. Type the title you would like to give your map between the start and end title tags like this:
-`<title> Hadwen Arboretum Map! </title>`
+
+```html
+<title> Hadwen Arboretum Map! </title>
+```
 
 Make sure you save your file in your document folder of your local web server application! Now we can get started with Leaflet!
 
