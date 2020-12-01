@@ -77,14 +77,14 @@ Now our code should be looking something like this:
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>           <!-- Leaflet JavaScript File -->
   
   <style>   
-   <!--set map height in head section-->
+   <!-- set map height in head section -->
       #map { height : 100%} 
   </style>  
   
   </head>
  
   <body>
-    <!--create map element-->
+    <!-- create map element -->
     <div id="map"></div>
   </body>
 </html>
