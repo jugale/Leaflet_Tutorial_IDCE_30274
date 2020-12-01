@@ -107,3 +107,5 @@ To start doing this, we need to start using JavaScript in our html file. We can 
 ```
 From now on, we will be working entirely within the start `<script>` tag and the end `<script>` tag for our map.
 
+First, 
+
