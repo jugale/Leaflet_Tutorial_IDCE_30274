@@ -1,13 +1,13 @@
-#Creating a Simple Webmap using Leaflet
+# Creating a Simple Webmap using Leaflet
 
-##Introduction
-###What is Leaflet?
+## Introduction
+### What is Leaflet?
 
-###How can Leaflet be useful to me?
+### How can Leaflet be useful to me?
 
 
-##Tutorial
-###Before we start...
+## Tutorial
+### Before we start...
 You will need:
 1. A code editor, I used Atom
 2. Set up a local web server. I used [MAMP](https://www.mamp.info/en/mac/).
