@@ -24,13 +24,13 @@ First thing to do is to open your code editor and create an `html` file. HTML is
 
 Neat thing about Atom, is that they make starting an HTML file super easy! In the bottom right corner you will see a series of options like the image below:
 
-INSERT IMAGE HERE
+![](images/atom_buttons.png)
 
 If you select the button that says "Plain Text" you will have the option to switch what language you are writing your file in. In the search bar, type "HTML" and select the first HTML option. Now you will be writing in HTML! 
 
 Next we need to create the basic structure of an HTML file, including the `<head>` and `<body>` section. Atom also makes this part wicked easy! Start typing "HTML" and the application will pop-up an autocomplete option. Press tab, or use your mouse to click the autocomplete pop-up, and Atom will start you off with a basic HTML structure:
 
-INSERT PICTURE HERE
+![](images/atom_HTML_empty)
 
 Here we'll see all the basic components of an HTML file, including a `<title> </title>` section. Here we can give our webpage a title which will appear when you hover over your webpage tab in a browser. Type the title you would like to give your map between the start and end title tags like this:
 
@@ -133,7 +133,7 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 ```
   After you've inserted the tile layer base map, save and open your HTML file. It should look something like the image below, with the map centered on the Hadwen Arboretum.
 
-INSERT PICTURE HERE
+![](images/map_base)
 
 
 ### Adding Points
@@ -152,7 +152,7 @@ Test out your script by saving and refreshing your HTML page in your browser. Lo
 ```
 Here we've addedthe marker to our map variable we defined previously. Save and refresh your HTML page, and it should look something like this:
 
-INSERT PICTURE HERE
+![](images/map_marker)
 
 Neat! Now we know how to add a marker to our Leaflet Map. This point isn't super helpful to us going forward, so you can either comment out this line like below, or delete this line from your code.
 
@@ -214,7 +214,7 @@ L.geoJSON(trails).addTo(map);
 
 Save your file and refresh your webpage. It should now show all the trails in the Arboretum!
 
-INSERT PICTURE HERE
+![](images/map_trails)
 
 This is great, but just lines on a map isn't super helpful. We want to be able to make a distinction between trails, and know what the different trail names are. To do this we need to add a pop-up that displays the trail name stored in the properties of each feature. 
 
@@ -269,7 +269,7 @@ Now we have to pass this function when creating our map to do this we're going t
 
 Like always, save your script and refresh your html page. Now you should be able to see each trail in a different color!
 
-INSERT PICTURE HERE
+![](images/map_trail_color_pop)
 
 Because we're looking at an Arboretum, we have to add some trees to this map. Next we will be adding some point data of the unique trees you can find at the Hadwen. The process to add point data is very similar to the process we used to add the trail feature. Open up `selectTrees.js` and copy and paste the contents of the file into your script below our work for the trail feature.
 
@@ -323,7 +323,7 @@ L.geoJSON(uniquetrees, {
 ```
 Now one last time, save your file and refresh your webpage. Now you should be able to click the tree points and see the common name of each tree!
 
-INSERT PICTURE HERE
+![](images/map_tree_pop)
 
 **Congrats! You've just created a basic webmap using Leaflet!**
 
