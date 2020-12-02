@@ -1,4 +1,5 @@
 # Creating a Simple Webmap using Leaflet
+This tutorial was created as a final project for IDCE 30274 Computer Programming for GIS.
 
 ## Introduction
 ### What is Leaflet?
