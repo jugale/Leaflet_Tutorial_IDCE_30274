@@ -3,10 +3,11 @@
 ## Introduction
 ### What is Leaflet?
 [Leaflet](https://leafletjs.com/index.html) is a light-weight way to create interactive web maps. Leaflet is an open-source JavaScript library that you can import into your own script from [their website](https://leafletjs.com/download.html). Leaflet can be used for data display and user interaction, but does not have any means for data analysis.
+Leaflet has lots of [plugins](https://leafletjs.com/plugins.html) that can be used along with the library to add capabilities not available in Leaflet. 
 
 ## Tutorial
 ### The Hadwen Arboretum
-In this tutorial, we will be creating a simple map of Clark University's Hadwen Arboretum, a 26-acre plot of land located just a 15-minute walk from Clark's Campus. Over the past year, Clark Students have been working intensely to rehabilitate the Arboretum with the goal of attaining Arboretum accreditation from [ArbNet](http://www.arbnet.org/arboretum-accreditation-program) and making the land safer and more inviting for community members.
+In this tutorial, we will be creating a simple map of Clark University's Hadwen Arboretum, a 26-acre plot of land located just a 15-minute walk from Clark's Campus. Over the past year, Clark Students have been working intensely to rehabilitate the Arboretum with the goal of attaining Arboretum accreditation from [ArbNet](http://www.arbnet.org/arboretum-accreditation-program) and making the land safer and more inviting for community members. You can learn a bit more about the Hadwen Arboretum [here](https://arcg.is/1j0Cu8)
 
 Part of the students work has been to create spatial data of the Arboretum, including a tree inventory and trail locations. We will be using some of this data to create a web map showing the trails in the Arboretum and some unique trees students found in their tree inventory.
 
