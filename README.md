@@ -19,6 +19,8 @@ First thing to do is to open your code editor and create an `html` file. HTML is
 
 Neat thing about Atom, is that they make starting an HTML file super easy! In the bottom right corner you will see a series of options like the image below:
 
+INSERT IMAGE HERE
+
 If you select the button that says "Plain Text" you will have the option to switch what language you are writing your file in. In the search bar, type "HTML" and select the first HTML option. Now you will be writing in HTML! 
 
 Next we need to create the basic structure of an HTML file, including the `<head>` and `<body>` section. Atom also makes this part wicked easy! Start typing "HTML" and the application will pop-up an autocomplete option. Press tab, or use your mouse to click the autocomplete pop-up, and Atom will start you off with a basic HTML structure:
@@ -129,6 +131,30 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 INSERT PICTURE HERE
 
 
-  
+### Adding Points
 
+Now that we have our base, we can start adding elements to our map! With leaflet, you can add points, markers, and polygons to your map. In this tutorial, we're going to try out putting a point to our map. If you're interested in learning how to put other geometries on your webmap, check out [Leaflet's Quick Start Tutorial](https://leafletjs.com/examples/quick-start/).
+
+Let's add a point to the center of the Hadwen Arboretum. To do this, we use `L.marker([latitude,longitude])` using the coordinates of where we want our maker to be.
+
+```javascript
+var marker = L.marker([42.258288,-71.832662])
+```
+Test out your script by saving and refreshing your HTML page in your browser. Look's like nothing is showing up? That's because you need to make sure you add the point to your map using `.addTo()` like below:
+
+```javascript
+  var marker = L.marker([42.258288,-71.832662]).addTo(map);
+```
+Here we've addedthe marker to our map variable we defined previously. Save and refresh your HTML page, and it should look something like this:
+
+INSERT PICTURE HERE
+
+Neat! Now we know how to add a marker to our Leaflet Map. This point isn't super helpful to us going forward, so you can either comment out this line like below, or delete this line from your code.
+
+```javascript
+//var marker = L.marker([42.258288,-71.832662]).addTo(map);
+```
+
+### Adding your own data to a Leaflet Map
+Built into Leaflet is the ability to add GeoJSON features to your map! We're going to use this ability to add our trails and tree data to create a simple map of the Hadwen Arboretum. 
 
