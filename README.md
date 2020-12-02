@@ -23,6 +23,8 @@ If you select the button that says "Plain Text" you will have the option to swit
 
 Next we need to create the basic structure of an HTML file, including the `<head>` and `<body>` section. Atom also makes this part wicked easy! Start typing "HTML" and the application will pop-up an autocomplete option. Press tab, or use your mouse to click the autocomplete pop-up, and Atom will start you off with a basic HTML structure:
 
+INSERT PICTURE HERE
+
 Here we'll see all the basic components of an HTML file, including a `<title> </title>` section. Here we can give our webpage a title which will appear when you hover over your webpage tab in a browser. Type the title you would like to give your map between the start and end title tags like this:
 
 ```html
@@ -113,4 +115,20 @@ First, lets create our map variable. We will be using `L.map` to initialize our 
   // initialize the map
   var map = L.map('map').setView([42.258288, -71.832662], 17);
 ```
+Next, we need to set a base map to work off of. Leaflet uses tile layers as basemaps from services like, [Mapbox](https://docs.mapbox.com/studio-manual/reference/tilesets/), [OpenStreetMap](https://www.openstreetmap.org/#map=4/38.00/-95.80), and [ESRI](http://esri.github.io/esri-leaflet/). To find one you would like to use, I suggest checking out [this basemap preview application](http://leaflet-extras.github.io/leaflet-providers/preview/) that lets you browse for a basemap you like and copy the code needed for your script!
+
+Copy and paste the code for your base map, and paste it below your map variable, making sure you include both the tile layer link **and** the layer attribution. I chose to use the ESRI Topo basemap, but you can use whatever you'd like!
+
+```javascript
+var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+  }).addTo(map);
+```
+  After you've inserted the tile layer base map, save and open your HTML file. It should look something like the image below, with the map centered on the Hadwen Arboretum.
+
+INSERT PICTURE HERE
+
+
+  
+
 
