@@ -293,4 +293,34 @@ To add our tree points to the map, we will be using `L.geoJSON()` again, but poi
       },
   }).addTo(map);
 ```
-Here we're using geoJSON to display the unique trees variable, `pointToLayer` to spawn the points, and the `L.circleMarker` function which creates the tree point and applies the symbology we created in the `treemarker` variable.
+Here we're using `geoJSON` to display the unique trees variable, `pointToLayer` to spawn the points, and the `L.circleMarker` function which creates the tree point and applies the symbology we created in the `treemarker` variable.
+
+Save your file and refresh your HTML, and the tree points should appear on your map! Our last step here is to add a pop-up to the tree layer so the user can know what type of tree each point is. The process to do this the exact same as binding a pop-up for the trails layer, but this time we're creating a function called `treepopup` and basing the pop-up off of the `Common_Nam` property:
+
+```javascript
+//bind popup to tree points, and have it display the common name of each tree
+function treepopup(feature, layer) {
+    if (feature.properties && feature.properties.Common_Nam) {
+        layer.bindPopup(feature.properties.Common_Nam);
+    }
+};
+```
+Add this script below your `treemarker` variable, and **above** the `geoJSON()` function and add the `onEachFeature` function when displaying `uniquetrees`:
+
+```javascript
+//use geoJSON to add unique trees points to the map
+L.geoJSON(uniquetrees, {
+    pointToLayer: function (feature, latlng) { //pointToLayer defines how GeoJSON points spawn Leaflet Layers; passes the point feature and coordinates
+        return L.circleMarker(latlng,treemarker); //creates circle marker at point, and uses style defined above
+    },
+    onEachFeature: treepopup //onEachFeature calls function once per feature; used to bind popup
+}).addTo(map);
+```
+Now one last time, save your file and refresh your webpage. Now you should be able to click the tree points and see the common name of each tree!
+
+**Congrats! You've just created a basic webmap using Leaflet!**
+
+##Credit
+This tutorial adapts elements of [Leaflet's Quick Start Guide](https://leafletjs.com/examples/quick-start/), [MapTimeBoston's Leaflet Demo](https://maptimeboston.github.io/leaflet-intro/), and [Leaflet's GeoJSON tutorial](https://leafletjs.com/examples/geojson/).
+Hadwen Arboretum data was provided by Professor John Rogan from Clark University, and collected by the Hadwen Arboretum Research Cohort.
+
