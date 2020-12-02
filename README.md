@@ -156,5 +156,113 @@ Neat! Now we know how to add a marker to our Leaflet Map. This point isn't super
 ```
 
 ### Adding your own data to a Leaflet Map
-Built into Leaflet is the ability to add GeoJSON features to your map! We're going to use this ability to add our trails and tree data to create a simple map of the Hadwen Arboretum. 
+Built into Leaflet is the ability to add GeoJSON features to your map using `L.geoJSON()` ! We're going to use this ability to add our trails and tree data to create a simple map of the Hadwen Arboretum. 
+
+[GeoJSON](https://geojson.org/) is a way to code geographic data, and supports points, lines (LineString), polygons, and multi-point,line, and polygon features. Shapefiles can be converted into GeoJSON format using a variety of GIS softwares. If you have ArcPro, you can use the feature to JSON conversion utility to convert a `.shp` to a `.geojson`. You can also do this using QGIS by exporting a `.shp` to a `.geojson`. [Here's a quick Youtube tutorial on how to do this using QGIS](https://youtu.be/K9648vyQEFM).
+
+For the sake of time, I have converted the data that we will use to GeoJSON format that can be found in the the `data` folder in this repo. Download the `arboretumtrails.js` and `selectTrees.js` save them into your folder on the server you are working in.
+
+Let's open up the `arboretumtrails.js` to look at the GeoJson format. Here's what you'll see at the top of the file:
+```javascript
+var trails = [{                                   //set variable
+  "type":"Feature",                               //define variable type
+  "properties":{                                  //properties holds data about feature
+    "trail_name":"Larch Lane Trail"
+  },                                              //close properties
+  "geometry":{                                    //define geometry
+    "type":"LineString",                          //define type of geometry -- linestring = continuous line feature
+    "coordinates":[                               //All coordinates of line feature, all coordinates of containted in brackets,
+      [-71.830063273720128,42.258708084231166],   //each coordinate within own brackets, coordinates separated by commas
+      [-71.830256090000859,42.258787690003146],
+      [-71.830419410000758,42.258846530003197],
+      [-71.830614170000828,42.258929770003107],
+      [-71.830754670000715,42.258991920003147],
+      [-71.830882800000708,42.25905416000311],
+      [-71.831061690000837,42.259128980003204],
+      [-71.831170010000761,42.259168470003182],
+      [-71.831272990000826,42.259183040003087],
+      [-71.831415250000717,42.259286890003118],
+      [-71.831547230000794,42.259338280003149],
+      [-71.83169322000073,42.259360740003167],
+      [-71.831789430000811,42.259406100003169],
+      [-71.831922650000763,42.259498150003147],
+      [-71.832027770000749,42.259563120003129],
+      [-71.832148220000747,42.259616150003161],
+      [-71.832257730000691,42.259655620003187],
+      [-71.832441880000786,42.259741470003206],
+      [-71.832560290000686,42.259797320003216],
+      [-71.832671810000804,42.2598600800032],
+      [-71.83279861000085,42.259920600003127],
+      [-71.832905040000782,42.259981510003222],
+      [-71.833019900000835,42.260025960003169]
+    ]                                             //close coordinates
+  }                                              //close geometry
+},{                                               //close first feature, open next, repeat for each unique feature
+```
+As we can see, the GeoJSON format stores the type of geometry, attribute data of the feature stored in *properties*, as well as the coordinates that are connected together to make a line. Copy and paste the contents of the script from the `arboretumtrails.js` under your tile base layer. 
+
+Now that we have geometry information in our file, we can use Leaflet to load it onto our map!
+
+```javascript
+L.geoJSON(trails).addTo(map);
+```
+
+Save your file and refresh your webpage. It should now show all the trails in the Arboretum!
+
+INSERT PICTURE HERE
+
+This is great, but just lines on a map isn't super helpful. We want to be able to make a distinction between trails, and know what the different trail names are. To do this we need to add a pop-up that displays the trail name stored in the properties of each feature. 
+
+To add a pop-up we're going to create a function that can then be called when displaying the trails:
+```javascript
+function trailname(feature, layer) {
+    if (feature.properties && feature.properties.trail_name) {
+        layer.bindPopup(feature.properties.trail_name);
+    }
+};
+```
+This creates a function called `trailname` that runs an if statement if the line feature has `trail_name` in the properties then bind the trail name as a popup to the layer. Add this function below the `trails` variable but before the `L.geoJSON()` function.
+
+Now we need to include the `trailname` function we created when adding our trails layer to our map. To do this we the  `onEachFeature` function, which will call the passed function one on each feature, and we add it like this:
+
+```javascript
+//use geoJSON to add the trail to the map
+  L.geoJSON(trails,{
+    onEachFeature: trailname
+  }).addTo(map);
+```
+
+Again, save your file and refresh your webpage. Now when you click on a line, a pop-up should occur showing the name of each trail.
+
+We can go a bit further and give each trail a unique color so that users can distinguish between each trail. Again, to do this we will be creating a function that contains the style for our lines:
+
+```javascript
+//this function assigns an individual color to each trail on the map
+function trailstyle(feature) {
+  switch (feature.properties.trail_name){
+    case 'Larch Lane Trail': return {color: "green"};
+    case 'East-West Trail': return {color: "blue"};
+    case 'Obadiah Trail': return {color: "yellow"};
+    case 'Appleton Trail': return {color: "red"};
+    case 'Facility Road': return {color: "black"};
+    case 'Beech Trail': return {color:"violet"}
+    case '': return {color: "grey"};
+  }
+};
+```
+This assigns a color to each line based on the trail name listed in each line's geometry! Add the code from above into your script, below the `trailname` function and **before** `L.geoJSON()`.
+
+Now we have to pass this function when creating our map to do this we're going to update the `L.geoJSON()` function to look like this:
+
+```javascript
+//use geoJSON to add the trail to the map
+  L.geoJSON(trails,{
+    style: trailstyle,
+    onEachFeature: trailname
+  }).addTo(map);
+```
+
+Like always, save your script and refresh your html page. Now you should be able to see each trail in a different color!
+
+INSERT PICTURE HERE
 
