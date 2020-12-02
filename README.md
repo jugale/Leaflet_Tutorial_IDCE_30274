@@ -266,3 +266,31 @@ Like always, save your script and refresh your html page. Now you should be able
 
 INSERT PICTURE HERE
 
+Because we're looking at an Arboretum, we have to add some trees to this map. Next we will be adding some point data of the unique trees you can find at the Hadwen. The process to add point data is very similar to the process we used to add the trail feature. Open up `selectTrees.js` and copy and paste the contents of the file into your script below our work for the trail feature.
+
+Before we display our tree points, we need to create a maker to display our trees (if we don't the default Leaflet marker will be displayed for each point). Unlike the trails, we don't need to make a function because each tree point will have the same symbology. Instead we will just be making a variable, which you will put directly under the `uniquetrees` variable from the `selectTrees.js`:
+
+```javascript
+//create maker for trees
+var treemarker = {
+    radius: 6,
+    fillColor: "Green",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+};
+```
+You can play around with these properties, changing the marker size with `radius` and the colors with `fillColor` and `color`. 
+
+To add our tree points to the map, we will be using `L.geoJSON()` again, but points require a little bit more to be displayed. We must use the `pointToLayer` fucntion to actually spawn the points on the map. Add this to your code after your `treemarker` variable:
+
+```javascript
+  //use geoJSON to add unique trees points to the map
+  L.geoJSON(uniquetrees, {
+      pointToLayer: function (feature, latlng) { //pointToLayer defines how GeoJSON points spawn Leaflet Layers; passes the point feature and coordinates
+          return L.circleMarker(latlng,treemarker); //creates circle marker at point, and uses style defined above
+      },
+  }).addTo(map);
+```
+Here we're using geoJSON to display the unique trees variable, `pointToLayer` to spawn the points, and the `L.circleMarker` function which creates the tree point and applies the symbology we created in the `treemarker` variable.
