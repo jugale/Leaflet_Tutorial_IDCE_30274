@@ -2,11 +2,15 @@
 
 ## Introduction
 ### What is Leaflet?
-
-### How can Leaflet be useful to me?
-
+[Leaflet](https://leafletjs.com/index.html) is a light-weight way to create interactive web maps. Leaflet is an open-source JavaScript library that you can import into your own script from [their website](https://leafletjs.com/download.html). Leaflet can be used for data display and user interaction, but does not have any means for data analysis.
 
 ## Tutorial
+### The Hadwen Arboretum
+In this tutorial, we will be creating a simple map of Clark University's Hadwen Arboretum, a 26-acre plot of land located just a 15-minute walk from Clark's Campus. Over the past year, Clark Students have been working intensely to rehabilitate the Arboretum with the goal of attaining Arboretum accreditation from [ArbNet](http://www.arbnet.org/arboretum-accreditation-program) and making the land safer and more inviting for community members.
+
+Part of the students work has been to create spatial data of the Arboretum, including a tree inventory and trail locations. We will be using some of this data to create a web map showing the trails in the Arboretum and some unique trees students found in their tree inventory.
+
+
 ### Before we start...
 You will need:
 1. A code editor, I used [Atom](https://atom.io/)
@@ -318,9 +322,11 @@ L.geoJSON(uniquetrees, {
 ```
 Now one last time, save your file and refresh your webpage. Now you should be able to click the tree points and see the common name of each tree!
 
+INSERT PICTURE HERE
+
 **Congrats! You've just created a basic webmap using Leaflet!**
 
-##Credit
+## Credit
 This tutorial adapts elements of [Leaflet's Quick Start Guide](https://leafletjs.com/examples/quick-start/), [MapTimeBoston's Leaflet Demo](https://maptimeboston.github.io/leaflet-intro/), and [Leaflet's GeoJSON tutorial](https://leafletjs.com/examples/geojson/).
 Hadwen Arboretum data was provided by Professor John Rogan from Clark University, and collected by the Hadwen Arboretum Research Cohort.
 
